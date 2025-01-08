@@ -2,7 +2,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.responses import JSONResponse
 import json
 import logging
-from models import Species, Subspecies, Traits
+from models import *
 from typing import List
 import csv
 
