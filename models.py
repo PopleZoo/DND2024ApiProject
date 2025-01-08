@@ -27,26 +27,54 @@ class Class(BaseModel):
     definition: Optional[Dict[str, Any]] = None  # Optional and can be expanded based on specific definition fields
     subclasses: List[Subclass]  # List of subclasses for the class
 
+# Separate Traits models
+class AbilityScoreIncrease(BaseModel):
+    abilityScoreIncrease: str
 
-class Traits(BaseModel):
-    breathWeapon: Optional[str]
-    damageResistance: Optional[str]
+class Size(BaseModel):
+    size: str
+
+class Speed(BaseModel):
+    speed: int
+
+class Languages(BaseModel):
+    languages: List[str]
+
+class SpeciesTraits(BaseModel):
+    abilityScoreIncrease: Optional[AbilityScoreIncrease] = None
+    size: Optional[Size] = None
+    speed: Optional[Speed] = None
+    languages: Optional[Languages] = None
+
+class SubspeciesTraits(BaseModel):
+    abilityScoreIncrease: Optional[AbilityScoreIncrease] = None
+    speed: Optional[Speed] = None
+    cantrips: Optional[str] = None
+    darkvision: Optional[str] = None
+
+class VariantTraits(BaseModel):
+    abilityScoreIncrease: Optional[AbilityScoreIncrease] = None
+    speed: Optional[Speed] = None
+    cantrips: Optional[str] = None
+    darkvision: Optional[str] = None
+
 
 class Variant(BaseModel):
     id: str
     name: str
     description: Optional[str]
-    traits: Traits
+    traits: VariantTraits
 
 class Subspecies(BaseModel):
     id: str
     name: str
     description: Optional[str]
+    traits: SubspeciesTraits
     variants: Optional[List[Variant]]
 
 class Species(BaseModel):
     id: str
     name: str
     description: Optional[str]
-    traits: Traits
+    traits: SpeciesTraits
     subspecies: Optional[List[Subspecies]]
