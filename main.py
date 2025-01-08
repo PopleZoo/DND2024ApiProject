@@ -4,6 +4,7 @@ import logging
 from models import Species, Subspecies, Traits
 from typing import List
 import csv
+import os
 
 # Initialize FastAPI application
 app = FastAPI()
@@ -11,6 +12,16 @@ app = FastAPI()
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+
+def print_project_structure(path='.'):
+    for root, dirs, files in os.walk(path):
+        level = root.replace(path, '').count(os.sep)
+        indent = ' ' * 4 * (level)
+        print(f"{indent}{os.path.basename(root)}/")
+        subindent = ' ' * 4 * (level + 1)
+        for f in files:
+            print(f"{subindent}{f}")
+
 
 # Function to validate JSON data
 def validate_data(data, required_keys):
@@ -90,6 +101,8 @@ def load_items_from_csv(file_path):
     except Exception as e:
         logger.error(f"Error loading items from {file_path}: {e}")
         return []
+
+print_project_structure()
 
 # Load the classes, species, and items when the app starts
 classes = load_classes_from_json("classes.json")
