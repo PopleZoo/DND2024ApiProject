@@ -1,5 +1,3 @@
-import os
-
 from fastapi import FastAPI, HTTPException
 import json
 import logging
@@ -93,30 +91,10 @@ def load_items_from_csv(file_path):
         logger.error(f"Error loading items from {file_path}: {e}")
         return []
 
-def find_file(file_name, start_dir='.'):
-    for root, dirs, files in os.walk(start_dir):
-        if file_name in files:
-            return os.path.join(root, file_name)
-    return None
-
-# Search for classes.json and species.json
-classes_file = find_file('classes.json')
-species_file = find_file('species.json')
-
-if classes_file:
-    print(f"Found classes.json at: {classes_file}")
-else:
-    print("classes.json not found.")
-
-if species_file:
-    print(f"Found species.json at: {species_file}")
-else:
-    print("species.json not found.")
-
 # Load the classes, species, and items when the app starts
-classes = load_classes_from_json("classes.json")
-species = load_species_from_json("species.json")
-items = load_items_from_csv("D&D5E2024_Stores_V1.0 - Master.csv")
+classes = load_classes_from_json("data/Classes.json")
+species = load_species_from_json("data/Species.json")
+items = load_items_from_csv("data/D&D5E2024_Stores_V1.0 - Master.csv")
 
 # Endpoint to fetch all classes, including subclasses and features
 @app.get("/api/classes", response_model=list)
