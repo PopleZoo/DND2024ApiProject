@@ -14,7 +14,6 @@ app = FastAPI()
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-
 # Function to validate JSON data
 def validate_data(data, required_keys):
     for entry in data:
@@ -94,11 +93,29 @@ def load_items_from_csv(file_path):
         logger.error(f"Error loading items from {file_path}: {e}")
         return []
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+def find_file(file_name, start_dir='.'):
+    for root, dirs, files in os.walk(start_dir):
+        if file_name in files:
+            return os.path.join(root, file_name)
+    return None
+
+# Search for classes.json and species.json
+classes_file = find_file('classes.json')
+species_file = find_file('species.json')
+
+if classes_file:
+    print(f"Found classes.json at: {classes_file}")
+else:
+    print("classes.json not found.")
+
+if species_file:
+    print(f"Found species.json at: {species_file}")
+else:
+    print("species.json not found.")
 
 # Load the classes, species, and items when the app starts
-classes = load_classes_from_json(os.path.join(BASE_DIR, "classes.json"))
-species = load_classes_from_json(os.path.join(BASE_DIR, "species.json"))
+classes = load_classes_from_json("classes.json")
+species = load_species_from_json("species.json")
 items = load_items_from_csv("D&D5E2024_Stores_V1.0 - Master.csv")
 
 # Endpoint to fetch all classes, including subclasses and features
