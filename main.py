@@ -1,3 +1,5 @@
+import os
+
 from fastapi import FastAPI, HTTPException
 import json
 import logging
@@ -11,6 +13,7 @@ app = FastAPI()
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+
 
 # Function to validate JSON data
 def validate_data(data, required_keys):
@@ -91,9 +94,11 @@ def load_items_from_csv(file_path):
         logger.error(f"Error loading items from {file_path}: {e}")
         return []
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 # Load the classes, species, and items when the app starts
-classes = load_classes_from_json("classes.json")
-species = load_species_from_json("species.json")
+classes = load_classes_from_json(os.path.join(BASE_DIR, "classes.json"))
+species = load_classes_from_json(os.path.join(BASE_DIR, "species.json"))
 items = load_items_from_csv("D&D5E2024_Stores_V1.0 - Master.csv")
 
 # Endpoint to fetch all classes, including subclasses and features
