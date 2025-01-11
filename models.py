@@ -27,44 +27,25 @@ class Class(BaseModel):
     definition: Optional[Dict[str, Any]] = None  # Flexible, can be expanded as needed
     subclasses: List[Subclass]  # List of subclasses for the class
 
-# Separate Traits models
-
-# Represents ability score increase, e.g., +2 to Strength
-class AbilityScoreIncrease(BaseModel):
-    abilityScoreIncrease: str
-
-# Represents the size category of a species or variant (e.g., Small, Medium, Large)
-class Size(BaseModel):
-    size: str
-
-# Represents movement speed (e.g., 30 feet)
-class Speed(BaseModel):
-    speed: int
-
-# Represents a list of languages a species or variant knows
-class Languages(BaseModel):
-    languages: List[str]
+class Trait(BaseModel):
+    name: str
+    description: str
 
 # Traits that apply to a species
 class SpeciesTraits(BaseModel):
-    abilityScoreIncrease: Optional[AbilityScoreIncrease] = None
-    size: Optional[Size] = None
-    speed: Optional[Speed] = None
-    languages: Optional[Languages] = None
+    abilityScoreIncrease: Optional[str] = None
+    size: Optional[int] = None
+    speed: Optional[int] = None
+    languages: Optional[List[str]] = None
+    SpeciesTraits: Optional[List[Trait]] = None # List of traits specific to this species
 
 # Traits specific to subspecies
 class SubspeciesTraits(BaseModel):
-    abilityScoreIncrease: Optional[AbilityScoreIncrease] = None
-    speed: Optional[Speed] = None
-    cantrips: Optional[str] = None  # Additional spells or abilities for the subspecies
-    darkvision: Optional[str] = None  # Darkvision trait for the subspecies
+    traits: List[Trait]  # List of traits specific to this subspecies
 
-# Traits specific to a variant
+# Represents a variant of a species
 class VariantTraits(BaseModel):
-    abilityScoreIncrease: Optional[AbilityScoreIncrease] = None
-    speed: Optional[Speed] = None
-    cantrips: Optional[str] = None
-    darkvision: Optional[str] = None
+    traits: List[Trait]  # List of traits specific to this variant
 
 # Represents a variant of a species
 class Variant(BaseModel):
@@ -78,7 +59,7 @@ class Subspecies(BaseModel):
     id: str
     name: str
     description: Optional[str] = None
-    traits: SubspeciesTraits  # Traits specific to this subspecies
+    subspecies_traits: List[Trait]  # List of traits specific to this subspecies
     variants: Optional[List[Variant]] = []  # A list of variants, optional if none exist
 
 # Main Species model representing a species and its subspecies
@@ -86,5 +67,5 @@ class Species(BaseModel):
     id: str
     name: str
     description: Optional[str] = None
-    traits: SpeciesTraits  # Traits common to the species
+    species_traits: SpeciesTraits  # Traits common to the species
     subspecies: Optional[List[Subspecies]] = []  # List of subspecies for this species

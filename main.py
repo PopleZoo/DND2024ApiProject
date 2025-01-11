@@ -1,3 +1,4 @@
+import logger
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import JSONResponse
 import json
@@ -6,7 +7,12 @@ from models import *
 from typing import List
 import csv
 
-# Initialize FastAPI application
+# Initialize FastAPI application with error logging
+try:
+    app = FastAPI()
+except Exception as e:
+    logger.error(f"Error initializing FastAPI application: {e}")
+    raise
 app = FastAPI()
 
 # Configure logging
@@ -63,8 +69,6 @@ def load_species_from_json(file_path):
     except Exception as e:
         logger.error(f"Error loading species from {file_path}: {e}")
         return []
-
-
 
 # Function to load items from the CSV file
 def load_items_from_csv(file_path):
@@ -140,12 +144,34 @@ async def get_subclass_from_class(class_id: str, subclass_id: str):
         logger.error(f"Error occurred: {e}")
         raise HTTPException(status_code=500, detail="Internal server error")
 
-
 # Endpoint to fetch all species
 @app.get("/api/species", response_model=List[Species])
 async def get_all_species():
-    logger.info("Fetching all species")
-    return species
+    try:
+        logger.info("Fetching all species")
+        # Construct the response data to match the expected model
+        response_data = []
+        for sp in species:
+            subspecies_data = []
+            for ss in sp.get("subspecies", []):
+                subspecies_data.append({
+                    "id": ss["id"],
+                    "name": ss["name"],
+                    "description": ss["description"],
+                    "subspecies_traits": ss["traits"],
+                    "variants": ss.get("variants", [])
+                })
+            response_data.append({
+                "id": sp["id"],
+                "name": sp["name"],
+                "description": sp["description"],
+                "species_traits": sp["species_traits"],
+                "subspecies": subspecies_data
+            })
+        return response_data
+    except Exception as e:
+        logger.error(f"Error fetching species: {e}")
+        raise HTTPException(status_code=500, detail="Internal server error")
 
 # Endpoint to fetch a specific species by its ID
 @app.get("/api/species/{species_id}", response_model=dict)
@@ -185,7 +211,13 @@ async def get_variant(species_id: str, subspecies_id: str, variant_id: str):
         logger.warning(f"Subspecies not found: {subspecies_id}")
         raise HTTPException(status_code=404, detail="Subspecies not found")
 
-    variant = next((v for v in subspecies.get("variants", []) if v["id"] == variant_id), None)
+    # Check if the variant exists
+    variants = subspecies.get("variants", [])
+    variant = next((v for v in variants if v["id"] == variant_id), None)
+    if not variant:
+        available_variants = [v["id"] for v in variants]
+        logger.warning(f"Variant not found: {variant_id}. Available variants: {available_variants}")
+        raise HTTPException(status_code=404, detail=f"Variant not found. Available variants: {available_variants}")
     if not variant:
         logger.warning(f"Variant not found: {variant_id}")
         raise HTTPException(status_code=404, detail="Variant not found")
@@ -197,21 +229,21 @@ async def get_variant(species_id: str, subspecies_id: str, variant_id: str):
 async def get_variants(species_id: str, subspecies_id: str):
     try:
         # Find the species
-        specie = next((s for s in species if s.id == species_id), None)
+        specie = next((s for s in species if s["id"] == species_id), None)
         if not specie:
             logger.warning(f"Species not found: {species_id}")
             raise HTTPException(status_code=404, detail="Species not found")
 
         # Find the subspecies
-        subspecies = next((ss for ss in specie.subspecies if ss.id == subspecies_id), None)
+        subspecies = next((ss for ss in specie["subspecies"] if ss["id"] == subspecies_id), None)
         if not subspecies:
             logger.warning(f"Subspecies not found: {subspecies_id}")
             raise HTTPException(status_code=404, detail="Subspecies not found")
 
-        return subspecies.variants
+        return subspecies["variants"]
 
     except Exception as e:
-        logger.error(f"Error occurred: {e}")
+        logger.error(f"Error occurred while fetching variants for species '{species_id}' and subspecies '{subspecies_id}': {e}")
         raise HTTPException(status_code=500, detail="Internal server error")
 
 # Endpoint to fetch all items

@@ -6,11 +6,12 @@
       "description": "Humans are adaptable and versatile, thriving in various environments and excelling in diverse pursuits.",
       "species_traits": {
         "abilityScoreIncrease": "You can increase one ability score of your choice by 1.",
-        "size": "Medium",
+        "size": 1,
         "speed": 30,
         "languages": ["Common", "One additional language of your choice"]
       },
-      "subspecies": []
+      "subspecies": [],
+      "traits": []
     },
     {
       "id": "elf",
@@ -18,7 +19,7 @@
       "description": "Elves are graceful and attuned to magic and nature, known for their longevity and keen senses.",
       "species_traits": {
         "abilityScoreIncrease": "Increase Dexterity by 2.",
-        "size": "Medium",
+        "size": 1,
         "speed": 30,
         "languages": ["Common", "Elvish"]
       },
@@ -27,30 +28,52 @@
           "id": "high-elf",
           "name": "High Elf",
           "description": "High Elves are scholars and spellcasters with an innate knack for magic.",
-          "subspecies_traits": {
-            "abilityScoreIncrease": "Increase Intelligence by 1.",
-            "cantrips": "You know one cantrip of your choice from the wizard spell list."
-          }
+          "traits": [
+            {
+              "name": "Ability Score Increase",
+              "description": "Increase Intelligence by 1."
+            },
+            {
+              "name": "Cantrips",
+              "description": "You know one cantrip of your choice from the wizard spell list."
+            }
+          ],
+          "variants": []
         },
         {
           "id": "wood-elf",
           "name": "Wood Elf",
           "description": "Wood Elves are agile hunters who feel at home in forested terrains.",
-          "subspecies_traits": {
-            "abilityScoreIncrease": "Increase Wisdom by 1.",
-            "speed": 35
-          }
+          "traits": [
+            {
+              "name": "Ability Score Increase",
+              "description": "Increase Wisdom by 1."
+            },
+            {
+              "name": "Speed",
+              "description": "Your speed is 35."
+            }
+          ],
+          "variants": []
         },
         {
           "id": "dark-elf",
           "name": "Dark Elf (Drow)",
           "description": "Dark Elves dwell in the Underdark and have a unique connection to magic and shadows.",
-          "subspecies_traits": {
-            "abilityScoreIncrease": "Increase Charisma by 1.",
-            "darkvision": "You can see in dim light within 60 feet as if it were bright light."
-          }
+          "traits": [
+            {
+              "name": "Ability Score Increase",
+              "description": "Increase Charisma by 1."
+            },
+            {
+              "name": "Darkvision",
+              "description": "You can see in dim light within 60 feet as if it were bright light."
+            }
+          ],
+          "variants": []
         }
-      ]
+      ],
+      "traits": []
     },
     {
       "id": "dwarf",
@@ -58,7 +81,7 @@
       "description": "Dwarves are strong and resilient, skilled in crafting and enduring hardship.",
       "species_traits": {
         "abilityScoreIncrease": "Increase Constitution by 2.",
-        "size": "Medium",
+        "size": 1,
         "speed": 25,
         "languages": ["Common", "Dwarvish"]
       },
@@ -67,31 +90,55 @@
           "id": "hill-dwarf",
           "name": "Hill Dwarf",
           "description": "Hill Dwarves are known for their resilience and deep-rooted connection to nature.",
-          "subspecies_traits": {
-            "abilityScoreIncrease": "Increase Wisdom by 1.",
-            "hitPoints": "You gain an additional hit point at each level."
-          }
+          "traits": [
+            {
+              "name": "Ability Score Increase",
+              "description": "Increase Wisdom by 1."
+            },
+            {
+              "name": "Hit Points",
+              "description": "You gain an additional hit point at each level."
+            }
+          ],
+          "variants": []
         },
         {
           "id": "mountain-dwarf",
           "name": "Mountain Dwarf",
           "description": "Mountain Dwarves are skilled warriors, accustomed to rugged terrains.",
-          "subspecies_traits": {
-            "armorProficiency": "You gain proficiency with light and medium armor."
-          }
+          "traits": [
+            {
+              "name": "Armor Proficiency",
+              "description": "You gain proficiency with light and medium armor."
+            }
+          ],
+          "variants": []
         }
-      ]
+      ],
+      "traits": []
     },
     {
       "id": "dragonborn",
       "name": "Dragonborn",
       "description": "Dragonborn are proud and noble beings, descended from dragons. Their ancestry grants them unique abilities tied to their draconic heritage.",
-      "species_traits": {
-        "abilityScoreIncrease": "Increase Strength by 2 and Charisma by 1.",
-        "size": "Medium",
-        "speed": 30,
-        "languages": ["Common", "Draconic"]
-      },
+      "traits": [
+        {
+          "name": "Ability Score Increase",
+          "description": "Increase Strength by 2 and Charisma by 1."
+        },
+        {
+          "name": "Size",
+          "description": "Medium"
+        },
+        {
+          "name": "Speed",
+          "description": "30"
+        },
+        {
+          "name": "Languages",
+          "description": "Common, Draconic"
+        }
+      ],
       "subspecies": [
         {
           "id": "chromatic-dragonborn",
@@ -102,46 +149,76 @@
               "id": "black-dragonborn",
               "name": "Black Dragonborn",
               "description": "Descendants of black dragons, feared for their acid breath.",
-              "variant_traits": {
-                "breathWeapon": "Exhale a 5x30 ft line of acid (Dexterity save).",
-                "damageResistance": "You have resistance to acid damage."
-              }
+              "traits": [
+                {
+                  "name": "Breath Weapon",
+                  "description": "Exhale a 5x30 ft line of acid (Dexterity save)."
+                },
+                {
+                  "name": "Damage Resistance",
+                  "description": "You have resistance to acid damage."
+                }
+              ]
             },
             {
               "id": "blue-dragonborn",
               "name": "Blue Dragonborn",
               "description": "Descendants of blue dragons, known for their mastery of lightning.",
-              "variant_traits": {
-                "breathWeapon": "Exhale a 5x30 ft line of lightning (Dexterity save).",
-                "damageResistance": "You have resistance to lightning damage."
-              }
+              "traits": [
+                {
+                  "name": "Breath Weapon",
+                  "description": "Exhale a 5x30 ft line of lightning (Dexterity save)."
+                },
+                {
+                  "name": "Damage Resistance",
+                  "description": "You have resistance to lightning damage."
+                }
+              ]
             },
             {
               "id": "green-dragonborn",
               "name": "Green Dragonborn",
               "description": "Descendants of green dragons, feared for their toxic breath.",
-              "variant_traits": {
-                "breathWeapon": "Exhale a 15 ft cone of poison (Constitution save).",
-                "damageResistance": "You have resistance to poison damage."
-              }
+              "traits": [
+                {
+                  "name": "Breath Weapon",
+                  "description": "Exhale a 15 ft cone of poison (Constitution save)."
+                },
+                {
+                  "name": "Damage Resistance",
+                  "description": "You have resistance to poison damage."
+                }
+              ]
             },
             {
               "id": "red-dragonborn",
               "name": "Red Dragonborn",
               "description": "Descendants of red dragons, embodying fiery destruction.",
-              "variant_traits": {
-                "breathWeapon": "Exhale a 15 ft cone of fire (Dexterity save).",
-                "damageResistance": "You have resistance to fire damage."
-              }
+              "traits": [
+                {
+                  "name": "Breath Weapon",
+                  "description": "Exhale a 15 ft cone of fire (Dexterity save)."
+                },
+                {
+                  "name": "Damage Resistance",
+                  "description": "You have resistance to fire damage."
+                }
+              ]
             },
             {
               "id": "white-dragonborn",
               "name": "White Dragonborn",
               "description": "Descendants of white dragons, attuned to the icy cold.",
-              "variant_traits": {
-                "breathWeapon": "Exhale a 15 ft cone of cold (Constitution save).",
-                "damageResistance": "You have resistance to cold damage."
-              }
+              "traits": [
+                {
+                  "name": "Breath Weapon",
+                  "description": "Exhale a 15 ft cone of cold (Constitution save)."
+                },
+                {
+                  "name": "Damage Resistance",
+                  "description": "You have resistance to cold damage."
+                }
+              ]
             }
           ]
         },
@@ -154,46 +231,76 @@
               "id": "brass-dragonborn",
               "name": "Brass Dragonborn",
               "description": "Descendants of brass dragons, known for their fiery breath.",
-              "variant_traits": {
-                "breathWeapon": "Exhale a 5x30 ft line of fire (Dexterity save).",
-                "damageResistance": "You have resistance to fire damage."
-              }
+              "traits": [
+                {
+                  "name": "Breath Weapon",
+                  "description": "Exhale a 5x30 ft line of fire (Dexterity save)."
+                },
+                {
+                  "name": "Damage Resistance",
+                  "description": "You have resistance to fire damage."
+                }
+              ]
             },
             {
               "id": "bronze-dragonborn",
               "name": "Bronze Dragonborn",
               "description": "Descendants of bronze dragons, adept in controlling lightning.",
-              "variant_traits": {
-                "breathWeapon": "Exhale a 5x30 ft line of lightning (Dexterity save).",
-                "damageResistance": "You have resistance to lightning damage."
-              }
+              "traits": [
+                {
+                  "name": "Breath Weapon",
+                  "description": "Exhale a 5x30 ft line of lightning (Dexterity save)."
+                },
+                {
+                  "name": "Damage Resistance",
+                  "description": "You have resistance to lightning damage."
+                }
+              ]
             },
             {
               "id": "copper-dragonborn",
               "name": "Copper Dragonborn",
               "description": "Descendants of copper dragons, known for their acidic breath.",
-              "variant_traits": {
-                "breathWeapon": "Exhale a 5x30 ft line of acid (Dexterity save).",
-                "damageResistance": "You have resistance to acid damage."
-              }
+              "traits": [
+                {
+                  "name": "Breath Weapon",
+                  "description": "Exhale a 5x30 ft line of acid (Dexterity save)."
+                },
+                {
+                  "name": "Damage Resistance",
+                  "description": "You have resistance to acid damage."
+                }
+              ]
             },
             {
               "id": "gold-dragonborn",
               "name": "Gold Dragonborn",
               "description": "Descendants of gold dragons, embodying fiery power and nobility.",
-              "variant_traits": {
-                "breathWeapon": "Exhale a 15 ft cone of fire (Dexterity save).",
-                "damageResistance": "You have resistance to fire damage."
-              }
+              "traits": [
+                {
+                  "name": "Breath Weapon",
+                  "description": "Exhale a 15 ft cone of fire (Dexterity save)."
+                },
+                {
+                  "name": "Damage Resistance",
+                  "description": "You have resistance to fire damage."
+                }
+              ]
             },
             {
               "id": "silver-dragonborn",
               "name": "Silver Dragonborn",
               "description": "Descendants of silver dragons, attuned to the frigid cold.",
-              "variant_traits": {
-                "breathWeapon": "Exhale a 15 ft cone of cold (Constitution save).",
-                "damageResistance": "You have resistance to cold damage."
-              }
+              "traits": [
+                {
+                  "name": "Breath Weapon",
+                  "description": "Exhale a 15 ft cone of cold (Constitution save)."
+                },
+                {
+                  "name": "Damage Resistance",
+                  "description": "You have resistance to cold damage."
+                }
+              ]
             }
           ]
         },
@@ -206,50 +313,81 @@
               "id": "amethyst-dragonborn",
               "name": "Amethyst Dragonborn",
               "description": "Descendants of amethyst dragons, wielding forceful breath attacks.",
-              "variant_traits": {
-                "breathWeapon": "Exhale a 15 ft cone of force damage (Dexterity save).",
-                "damageResistance": "You have resistance to force damage."
-              }
+              "traits": [
+                {
+                  "name": "Breath Weapon",
+                  "description": "Exhale a 15 ft cone of force damage (Dexterity save)."
+                },
+                {
+                  "name": "Damage Resistance",
+                  "description": "You have resistance to force damage."
+                }
+              ]
             },
             {
               "id": "crystal-dragonborn",
               "name": "Crystal Dragonborn",
               "description": "Descendants of crystal dragons, radiant and protective.",
-              "variant_traits": {
-                "breathWeapon": "Exhale a 15 ft cone of radiant damage (Constitution save).",
-                "damageResistance": "You have resistance to radiant damage."
-              }
+              "traits": [
+                {
+                  "name": "Breath Weapon",
+                  "description": "Exhale a 15 ft cone of radiant damage (Constitution save)."
+                },
+                {
+                  "name": "Damage Resistance",
+                  "description": "You have resistance to radiant damage."
+                }
+              ]
             },
             {
               "id": "emerald-dragonborn",
               "name": "Emerald Dragonborn",
               "description": "Descendants of emerald dragons, emitting psychic power.",
-              "variant_traits": {
-                "breathWeapon": "Exhale a 15 ft cone of psychic damage (Constitution save).",
-                "damageResistance": "You have resistance to psychic damage."
-              }
+              "traits": [
+                {
+                  "name": "Breath Weapon",
+                  "description": "Exhale a 15 ft cone of psychic damage (Constitution save)."
+                },
+                {
+                  "name": "Damage Resistance",
+                  "description": "You have resistance to psychic damage."
+                }
+              ]
             },
             {
               "id": "sapphire-dragonborn",
               "name": "Sapphire Dragonborn",
               "description": "Descendants of sapphire dragons, resonating with thunder.",
-              "variant_traits": {
-                "breathWeapon": "Exhale a 15 ft cone of thunder damage (Dexterity save).",
-                "damageResistance": "You have resistance to thunder damage."
-              }
+              "traits": [
+                {
+                  "name": "Breath Weapon",
+                  "description": "Exhale a 15 ft cone of thunder damage (Dexterity save)."
+                },
+                {
+                  "name": "Damage Resistance",
+                  "description": "You have resistance to thunder damage."
+                }
+              ]
             },
             {
               "id": "topaz-dragonborn",
               "name": "Topaz Dragonborn",
               "description": "Descendants of topaz dragons, exuding necrotic energy.",
-              "variant_traits": {
-                "breathWeapon": "Exhale a 15 ft cone of necrotic damage (Constitution save).",
-                "damageResistance": "You have resistance to necrotic damage."
-              }
+              "traits": [
+                {
+                  "name": "Breath Weapon",
+                  "description": "Exhale a 15 ft cone of necrotic damage (Constitution save)."
+                },
+                {
+                  "name": "Damage Resistance",
+                  "description": "You have resistance to necrotic damage."
+                }
+              ]
             }
           ]
         }
-      ]
+      ],
+      "traits": []
     },
     {
       "id": "halfling",
@@ -257,7 +395,7 @@
       "description": "Halflings are small and nimble, known for their luck and resourcefulness.",
       "species_traits": {
         "abilityScoreIncrease": "Increase Dexterity by 2.",
-        "size": "Small",
+        "size": 0,
         "speed": 25,
         "languages": ["Common", "Halfling"]
       },
@@ -266,21 +404,36 @@
           "id": "lightfoot-halfling",
           "name": "Lightfoot Halfling",
           "description": "Lightfoot Halflings are stealthy and charismatic.",
-          "subspecies_traits": {
-            "abilityScoreIncrease": "Increase Charisma by 1.",
-            "stealth": "You can attempt to hide even when obscured by a creature larger than you."
-          }
+          "traits": [
+            {
+              "name": "Ability Score Increase",
+              "description": "Increase Charisma by 1."
+            },
+            {
+              "name": "Stealth",
+              "description": "You can attempt to hide even when obscured by a creature larger than you."
+            }
+          ],
+          "variants": []
         },
         {
           "id": "stout-halfling",
           "name": "Stout Halfling",
           "description": "Stout Halflings are hardier and more resilient than their Lightfoot kin.",
-          "subspecies_traits": {
-            "abilityScoreIncrease": "Increase Constitution by 1.",
-            "resilience": "You have advantage on saving throws against poison."
-          }
+          "traits": [
+            {
+              "name": "Ability Score Increase",
+              "description": "Increase Constitution by 1."
+            },
+            {
+              "name": "Resilience",
+              "description": "You have advantage on saving throws against poison."
+            }
+          ],
+          "variants": []
         }
-      ]
+      ],
+      "traits": []
     },
     {
       "id": "tiefling",
@@ -288,7 +441,7 @@
       "description": "Tieflings are individuals with infernal heritage, marked by their fiendish blood.",
       "species_traits": {
         "abilityScoreIncrease": "Increase Charisma by 2 and Intelligence by 1.",
-        "size": "Medium",
+        "size": 1,
         "speed": 30,
         "languages": ["Common", "Infernal"]
       },
@@ -297,21 +450,36 @@
           "id": "infernal-tiefling",
           "name": "Infernal Tiefling",
           "description": "Tieflings with a connection to the Nine Hells, gaining unique spells and resistances.",
-          "subspecies_traits": {
-            "darkvision": "You can see in dim light within 60 feet as if it were bright light.",
-            "spellcasting": "You know the Thaumaturgy cantrip."
-          }
+          "traits": [
+            {
+              "name": "Darkvision",
+              "description": "You can see in dim light within 60 feet as if it were bright light."
+            },
+            {
+              "name": "Spellcasting",
+              "description": "You know the Thaumaturgy cantrip."
+            }
+          ],
+          "variants": []
         },
         {
           "id": "abyssal-tiefling",
           "name": "Abyssal Tiefling",
           "description": "Tieflings connected to the Abyss, marked by chaotic energy.",
-          "subspecies_traits": {
-            "darkvision": "You can see in dim light within 60 feet as if it were bright light.",
-            "spellcasting": "You know the Eldritch Blast cantrip."
-          }
+          "traits": [
+            {
+              "name": "Darkvision",
+              "description": "You can see in dim light within 60 feet as if it were bright light."
+            },
+            {
+              "name": "Spellcasting",
+              "description": "You know the Eldritch Blast cantrip."
+            }
+          ],
+          "variants": []
         }
-      ]
+      ],
+      "traits": []
     },
     {
       "id": "gnome",
@@ -319,7 +487,7 @@
       "description": "Gnomes are small, clever, and inventive, often with a deep connection to the earth.",
       "species_traits": {
         "abilityScoreIncrease": "Increase Intelligence by 2.",
-        "size": "Small",
+        "size": 0,
         "speed": 25,
         "languages": ["Common", "Gnomish"]
       },
@@ -328,21 +496,36 @@
           "id": "forest-gnome",
           "name": "Forest Gnome",
           "description": "Forest Gnomes are attuned to nature and often live in wooded areas.",
-          "subspecies_traits": {
-            "abilityScoreIncrease": "Increase Dexterity by 1.",
-            "naturalIllusionist": "You know the Minor Illusion cantrip."
-          }
+          "traits": [
+            {
+              "name": "Ability Score Increase",
+              "description": "Increase Dexterity by 1."
+            },
+            {
+              "name": "Natural Illusionist",
+              "description": "You know the Minor Illusion cantrip."
+            }
+          ],
+          "variants": []
         },
         {
           "id": "rock-gnome",
           "name": "Rock Gnome",
           "description": "Rock Gnomes are known for their inventiveness and craftsmanship.",
-          "subspecies_traits": {
-            "abilityScoreIncrease": "Increase Constitution by 1.",
-            "artificer'sLore": "You have proficiency with artisan's tools."
-          }
+          "traits": [
+            {
+              "name": "Ability Score Increase",
+              "description": "Increase Constitution by 1."
+            },
+            {
+              "name": "Artificer's Lore",
+              "description": "You have proficiency with artisan's tools."
+            }
+          ],
+          "variants": []
         }
-      ]
+      ],
+      "traits": []
     },
     {
       "id": "orc",
@@ -350,61 +533,88 @@
       "description": "Orcs are fierce and strong, often living in tribal societies.",
       "species_traits": {
         "abilityScoreIncrease": "Increase Strength by 2 and Constitution by 1.",
-        "size": "Medium",
+        "size": 1,
         "speed": 30,
         "languages": ["Common", "Orc"]
       },
-      "subspecies": []
+      "subspecies": [],
+      "traits": []
     },
     {
       "id": "goliath",
       "name": "Goliath",
-      "description": "Goliaths are towering, strong, and hardy people, known for their competitive and survivalist nature in harsh environments.",
+      "description": "Towering over most folk, goliaths are distant descendants of giants, known for their supernatural boons tied to their giant heritage.",
       "species_traits": {
         "abilityScoreIncrease": "Increase Strength by 2 and Constitution by 1.",
-        "size": "Medium",
-        "speed": 30,
+        "size": "Medium (about 7-8 feet tall)",
+        "speed": 35,
         "languages": ["Common", "Giant"],
         "mountainBorn": "You’re acclimated to high altitudes, including elevations above 20,000 feet, and you’re naturally adapted to cold climates.",
-        "stone’sEndurance": "You can use your reaction to reduce damage dealt to you by 1d12 + your Constitution modifier."
+        "stone’sEndurance": "As a reaction, reduce damage taken by 1d12 + Constitution modifier once per short rest."
       },
       "subspecies": [
         {
           "id": "stone-goliath",
           "name": "Stone Goliath",
-          "description": "Goliaths connected to the resilience of stone, renowned for their endurance.",
-          "subspecies_traits": {
-            "damageResistance": "You have resistance to bludgeoning damage."
-          }
+          "description": "Goliaths connected to the resilience of stone, renowned for their endurance and strength.",
+          "traits": [
+            {
+              "name": "Stone's Endurance",
+              "description": "As a reaction, reduce damage dealt to you by 1d12 + Constitution modifier."
+            }
+          ],
+          "variants": []
         },
         {
           "id": "ice-goliath",
           "name": "Ice Goliath",
-          "description": "Goliaths tied to the cold of their mountain homes, excelling in icy terrains.",
-          "subspecies_traits": {
-            "coldResistance": "You have resistance to cold damage.",
-            "iceClimber": "You have advantage on Athletics checks related to climbing icy surfaces."
-          }
+          "description": "Goliaths tied to the cold of their mountain homes, excelling in icy terrains and enduring freezing conditions.",
+          "traits": [
+            {
+              "name": "Cold Resistance",
+              "description": "You have resistance to cold damage."
+            },
+            {
+              "name": "Ice Climber",
+              "description": "You have advantage on Athletics checks related to climbing icy surfaces."
+            }
+          ],
+          "variants": []
         },
         {
           "id": "storm-goliath",
           "name": "Storm Goliath",
-          "description": "Goliaths infused with the power of storms, wielding thunderous strength.",
-          "subspecies_traits": {
-            "damageResistance": "You have resistance to thunder damage.",
-            "thunderStrike": "When you hit with a melee attack, you can deal an additional 1d6 thunder damage. This can be used once per short rest."
-          }
+          "description": "Goliaths infused with the power of storms, capable of wielding thunderous strength and resilience.",
+          "traits": [
+            {
+              "name": "Storm's Thunder",
+              "description": "As a reaction, deal 1d8 thunder damage to a creature within 60 feet when damaged by it."
+            },
+            {
+              "name": "Thunder Strike",
+              "description": "When you hit with a melee attack, deal an additional 1d6 thunder damage. Usable once per short rest."
+            }
+          ],
+          "variants": []
         },
         {
           "id": "fire-goliath",
           "name": "Fire Goliath",
-          "description": "Goliaths attuned to volcanic regions, harnessing the strength of fire.",
-          "subspecies_traits": {
-            "damageResistance": "You have resistance to fire damage.",
-            "fieryAura": "Creatures that hit you with a melee attack take fire damage equal to your proficiency bonus."
-          }
+          "description": "Goliaths attuned to volcanic regions, harnessing fiery resilience and destructive power.",
+          "traits": [
+            {
+              "name": "Fire Resistance",
+              "description": "You have resistance to fire damage."
+            },
+            {
+              "name": "Fires burn",
+              "description": "When a creature hits you with a melee attack, it takes fire damage equal to your proficiency bonus."
+            }
+          ],
+          "variants": []
         }
-      ]
+      ],
+      "traits": []
     }
   ]
 }

@@ -624,70 +624,133 @@
             "isHomebrew": false
           }
         ],
-        "subclasses": [
+        "subclasses":[
           {
-            "id": "oath-of-devotion",
-            "name": "Oath of Devotion",
-            "description": "Paladins who uphold the ideals of justice, virtue, and order .",
-            "features": [
-              {
-                "id": "sacred-weapon",
-                "name": "Sacred Weapon",
-                "description": "Add your Charisma modifier to attack rolls for a minute.",
-                "level": 3,
-                "isHomebrew": false
-              },
-              {
-                "id": "turn-the-unholy",
-                "name": "Turn the Unholy",
-                "description": "As an action, you can present your holy symbol to compel fiends and undead to flee.",
-                "level": 5,
-                "isHomebrew": false
-              }
-            ]
-          },
-          {
-            "id": "oath-of-the-ancients",
-            "name": "Oath of the Ancients",
-            "description": "Paladins who draw power from the forces of nature and the light.",
-            "features": [
-              {
-                "id": "channel-divinity",
-                "name": "Channel Divinity: Nature's Wrath",
-                "description": "You can use your Channel Divinity to ensnare foes in magical vines.",
-                "level": 3,
-                "isHomebrew": false
-              },
-              {
-                "id": "undying-sentiment",
-                "name": "Undying Sentiment",
-                "description": "You gain resistance to damage from spells.",
-                "level": 7,
-                "isHomebrew": false
-              }
-            ]
-          },
-          {
-            "id": "oath-of-vengeance",
-            "name": "Oath of Vengeance",
-            "description": "Paladins who seek retribution against those who have wronged others.",
-            "features": [
-              {
-                "id": "abjure-enemy",
-                "name": "Abjure Enemy",
-                "description": "As an action, you can force a creature to make a Wisdom saving throw or be frightened.",
-                "level": 3,
-                "isHomebrew": false
-              },
-              {
-                "id": "vow-of-enmity",
-                "name": "Vow of Enmity",
-                "description": "You can choose a creature to gain advantage on attack rolls against it for a minute.",
-                "level": 7,
-                "isHomebrew": false
-              }
-            ]
-          }
+    "id": "oath-of-the-ancients",
+    "name": "Oath of the Ancients",
+    "description": "Paladins who draw power from the forces of nature and the light.",
+    "features": [
+      {
+        "id": "channel-divinity",
+        "name": "Channel Divinity: Nature's Wrath",
+        "description": "You can use your Channel Divinity to ensnare foes in magical vines.",
+        "level": 3,
+        "isHomebrew": false
+      },
+      {
+        "id": "undying-sentiment",
+        "name": "Undying Sentiment",
+        "description": "You gain resistance to damage from spells.",
+        "level": 7,
+        "isHomebrew": false
+      }
+    ]
+  },
+  {
+    "id": "oath-of-vengeance",
+    "name": "Oath of Vengeance",
+    "description": "Paladins who seek retribution against those who have wronged others.",
+    "features": [
+      {
+        "id": "abjure-enemy",
+        "name": "Abjure Enemy",
+        "description": "As an action, you can force a creature to make a Wisdom saving throw or be frightened.",
+        "level": 3,
+        "isHomebrew": false
+      },
+      {
+        "id": "vow-of-enmity",
+        "name": "Vow of Enmity",
+        "description": "You can choose a creature to gain advantage on attack rolls against it for a minute.",
+        "level": 7,
+        "isHomebrew": false
+      }
+    ]
+  },
+  {
+    "id": "oath-of-glory",
+    "name": "Oath of Glory",
+    "description": "Paladins who believe in their own heroism and inspire others to achieve greatness.",
+    "features": [
+      {
+        "id": "channel-divinity-peerless-athlete",
+        "name": "Channel Divinity: Peerless Athlete",
+        "description": "As an action, you can use your Channel Divinity to enhance your athletic abilities.",
+        "level": 3,
+        "isHomebrew": false
+      },
+      {
+        "id": "aura-of-alacrity",
+        "name": "Aura of Alacrity",
+        "description": "You radiate an aura that increases the movement speed of friendly creatures within 10 feet.",
+        "level": 7,
+        "isHomebrew": false
+      }
+    ]
+  },
+  {
+    "id": "oath-of-devotion",
+    "name": "Oath of Devotion",
+    "description": "Paladins who uphold the highest ideals of justice, virtue, and honor.",
+    "features": [
+      {
+        "id": "channel-divinity-sacred-weapon",
+        "name": "Channel Divinity: Sacred Weapon",
+        "description": "As an action, imbue a weapon with positive energy, adding your Charisma modifier to attack rolls.",
+        "level": 3,
+        "isHomebrew": false
+      },
+      {
+        "id": "aura-of-devotion",
+        "name": "Aura of Devotion",
+        "description": "You and friendly creatures within 10 feet can't be charmed while conscious.",
+        "level": 7,
+        "isHomebrew": false
+      }
+    ]
+  },
+  {
+    "id": "oath-of-conquest",
+    "name": "Oath of Conquest",
+    "description": "Paladins who strive to crush evil and enforce law through might.",
+    "features": [
+      {
+        "id": "channel-divinity-conquering-presence",
+        "name": "Channel Divinity: Conquering Presence",
+        "description": "As an action, force creatures within 30 feet to make a Wisdom saving throw or be frightened.",
+        "level": 3,
+        "isHomebrew": false
+      },
+      {
+        "id": "aura-of-conquest",
+        "name": "Aura of Conquest",
+        "description": "Creatures frightened by you have their speed reduced to 0 and take psychic damage if they start their turn in the aura.",
+        "level": 7,
+        "isHomebrew": false
+      }
+    ]
+  },
+  {
+    "id": "oathbreaker",
+    "name": "Oathbreaker",
+    "description": "Paladins who have abandoned their sacred oaths in pursuit of darker power.",
+    "features": [
+      {
+        "id": "control-undead",
+        "name": "Control Undead",
+        "description": "As an action, target an undead creature within 30 feet to make a Wisdom saving throw or be charmed by you.",
+        "level": 3,
+        "isHomebrew": false
+      },
+      {
+        "id": "aura-of-hate",
+        "name": "Aura of Hate",
+        "description": "You and undead or fiendish allies deal additional damage equal to your Charisma modifier.",
+        "level": 7,
+        "isHomebrew": false
+      }
+    ]
+  }
         ]
       }
     },
